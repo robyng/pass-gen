@@ -17,6 +17,20 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+var passLength = window.prompt('How long do you want your password? Enter a number between 8 and 128.');
+
+if (passLength >= 8 && passLength <= 128) {
+window.alert('thank you')
+
+} else {
+  window.confirm('Try again');
+}
+
+
+console.log(passLength)
+
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -28,3 +42,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
