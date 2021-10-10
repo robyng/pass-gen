@@ -22,6 +22,8 @@ lowerCaseSet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 
 
 
+
+
 //When generate password button is pressed then ask how many characters
 //ask how many characters do you need? Window prompt numbers between 8 and 128 only
 generateBtn.addEventListener('click', function() { 
@@ -45,18 +47,22 @@ generateBtn.addEventListener('click', function() {
       password1 = specialCharSet[randomChar];
       console.log('var password1 aka character of the index is ' + password1);
 
-var newPass = ''
+      var newPass = ''
 
-for (var password1 = 0; password1 < passLength; password1++) {
-  newPass += specialCharSet[password1]
-}
 
-console.log(newPass);
+
+      for (var password1 = 0; password1 < passLength; password1++) {
+        newPass += specialCharSet[password1]
+      }
+
+      console.log(newPass);
 
 
     }
 
   })
+
+
  
 
 
