@@ -1,8 +1,85 @@
-//When generate password button is pressed then
+// Variables
+var generateBtn = document.querySelector("#generate");
 
+specialCharSet = ['!', "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "<", ">", "?", "/", ".", "[", "]", "{", "}", "~", "`"]
+
+numberSet = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
+upperCaseSet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', "Q", 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+lowerCaseSet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', "q", 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+// Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
+
+//   passwordText.value = password;
+
+//   password.textContent = passwordText;
+
+// }
+
+
+
+//When generate password button is pressed then ask how many characters
 //ask how many characters do you need? Window prompt numbers between 8 and 128 only
+generateBtn.addEventListener('click', function() { 
+  var passLength = window.prompt('How long do you want your password? Enter a number between 8 and 128.');
+  if (passLength < 8 || passLength > 128 || isNaN(passLength) ) {
+    window.alert('Try agian');
 
-//then ask if they want special characters window confirm
+    } else {
+      window.confirm('Thank you!');
+      console.log('password length is ' + passLength)
+
+    }
+
+  //then ask if they want special characters window confirm
+ 
+  var askSpecialChar = window.confirm('Do you want to have special characters?');
+    if (askSpecialChar) {
+      randomChar = Math.floor(Math.random() * specialCharSet.length)
+      console.log('index of random character from set is ' + randomChar)
+      
+      password1 = specialCharSet[randomChar];
+      console.log('var password1 aka character of the index is ' + password1);
+
+var newPass = ''
+
+for (var password1 = 0; password1 < passLength; password1++) {
+  newPass += specialCharSet[password1]
+}
+
+console.log(newPass);
+
+
+    }
+
+  })
+ 
+
+
+
+
+    
+    // var passwordText = document.querySelector("#password");
+
+    // passLength.textContent = passwordText;
+
+
+
+
+
+
+
+
+// // Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword);
+
+
+
+
 
 //then ask if they want upper case window confirm
 
@@ -15,31 +92,3 @@
 //print their password in textarea
 
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-var passLength = window.prompt('How long do you want your password? Enter a number between 8 and 128.');
-
-if (passLength >= 8 && passLength <= 128) {
-window.alert('thank you')
-
-} else {
-  window.confirm('Try again');
-}
-
-
-console.log(passLength)
-
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
