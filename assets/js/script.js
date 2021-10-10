@@ -42,25 +42,27 @@ generateBtn.addEventListener('click', function() {
   var askSpecialChar = window.confirm('Do you want to have special characters?');
     if (askSpecialChar) {
       randomChar = Math.floor(Math.random() * specialCharSet.length)
+      
       console.log('index of random character from set is ' + randomChar)
       
+      
       password1 = specialCharSet[randomChar];
-      console.log('var password1 aka character of the index is ' + password1);
-
-      var newPass = ''
-
-
+      
+      console.log('password1 is ' + password1);
+    }
+       var newPass = ''
 
       for (var password1 = 0; password1 < passLength; password1++) {
         newPass += specialCharSet[password1]
+      
       }
+      window.alert('Your new password is: ' + newPass)
 
       console.log(newPass);
 
 
-    }
+    })
 
-  })
 
 
  
