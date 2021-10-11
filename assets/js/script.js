@@ -9,6 +9,7 @@ upperCaseSet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 
 lowerCaseSet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', "q", 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+masterArray = []
 // Write password to the #password input
 // function writePassword() {
 //   var password = generatePassword();
@@ -25,7 +26,7 @@ lowerCaseSet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 
 
 //When generate password button is pressed then ask how many characters
-//ask how many characters do you need? Window prompt numbers between 8 and 128 only
+
 generateBtn.addEventListener('click', function() { 
   var passLength = window.prompt('How long do you want your password? Enter a number between 8 and 128.');
   if (passLength < 8 || passLength > 128 || isNaN(passLength) ) {
@@ -37,34 +38,52 @@ generateBtn.addEventListener('click', function() {
 
     }
 
-  //then ask if they want special characters window confirm
- 
+
+
+  var yesNumbers = window.confirm('Do you want numbers in your password?')
+
+  var yesUppercase = window.confirm('Do you have want UPPERCASE letters in your password?')
+
+  var yesLowercase = window.confirm('Do you want lowercase lestters in your password?') 
+  
   var askSpecialChar = window.confirm('Do you want to have special characters?');
-    if (askSpecialChar) {
-      randomChar = Math.floor(Math.random() * specialCharSet.length)
-      
-      console.log('index of random character from set is ' + randomChar)
-      
-      
-      password1 = specialCharSet[randomChar];
-      
-      console.log('password1 is from index a symbol: ' + password1);
-    }
-       var newPass = ''
+
+  //then ask if they want special characters window confirm
+
+  if (yesNumbers) {
+    masterArray = masterArray.concat(numberSet)
+  }
+
+  if (yesUppercase) {
+    masterArray = masterArray.concat(upperCaseSet)
+  }
+
+  if (yesLowercase) {
+    masterArray = masterArray.concat(lowerCaseSet)
+  }
+
+  if (askSpecialChar) {
+    masterArray = masterArray.concat(specialCharSet)
+  }
+ 
+
+      var newPass = ''
 
       for (var i = 0; i < passLength; i++) {
         var randNum = 0
-        var randNum = Math.floor(Math.random() * passLength)
+        var randNum = Math.floor(Math.random() * masterArray.length)
         
-        newPass += specialCharSet[randNum]
+        newPass += masterArray[randNum]
       
       }
       window.alert('Your new password is: ' + newPass)
 
       console.log(newPass);
 
-
     })
+
+
+  
 
 
 
