@@ -48,12 +48,15 @@ generateBtn.addEventListener('click', function() {
       
       password1 = specialCharSet[randomChar];
       
-      console.log('password1 is ' + password1);
+      console.log('password1 is from index a symbol: ' + password1);
     }
        var newPass = ''
 
-      for (var password1 = 0; password1 < passLength; password1++) {
-        newPass += specialCharSet[password1]
+      for (var i = 0; i < passLength; i++) {
+        var randNum = 0
+        var randNum = Math.floor(Math.random() * passLength)
+        
+        newPass += specialCharSet[randNum]
       
       }
       window.alert('Your new password is: ' + newPass)
