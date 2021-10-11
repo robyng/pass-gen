@@ -15,18 +15,18 @@ masterArray = []
 
 
 
-
 //When generate password button is pressed then ask how many characters
 
 generateBtn.addEventListener('click', function() { 
-  document.querySelector("#password").value = '';
+  
+
+
   var passLength = window.prompt('How long do you want your password? Enter a number between 8 and 128.');
   if (passLength < 8 || passLength > 128 || isNaN(passLength) ) {
     window.alert('Try agian');
 
     } else {
       window.confirm('Thank you!');
-      console.log('password length is ' + passLength)
 
     }
 
@@ -44,22 +44,19 @@ generateBtn.addEventListener('click', function() {
 
   if (yesNumbers) {
     masterArray = masterArray.concat(numberSet)
-    console.log(masterArray)
+
   }
 
   if (yesUppercase) {
     masterArray = masterArray.concat(upperCaseSet)
-    console.log(masterArray)
   }
 
   if (yesLowercase) {
     masterArray = masterArray.concat(lowerCaseSet)
-    console.log(masterArray)
   }
 
   if (askSpecialChar) {
     masterArray = masterArray.concat(specialCharSet)
-    console.log(masterArray)
   }
  
 
@@ -72,9 +69,7 @@ generateBtn.addEventListener('click', function() {
         newPass += masterArray[randNum]
       
       }
-      window.alert('Your new password is: ' + newPass)
 
-      console.log(newPass);
 
           //Write password to the #password input
     function writePassword() {
@@ -86,8 +81,9 @@ generateBtn.addEventListener('click', function() {
       // make masterArray empty again so it doens't carry over if generate clicked again
       masterArray = []
 
-    })
 
+    })
+  
 
   
 
