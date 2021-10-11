@@ -10,16 +10,7 @@ upperCaseSet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 lowerCaseSet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', "q", 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 masterArray = []
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
-
-//   password.textContent = passwordText;
-
-// }
 
 
 
@@ -28,6 +19,7 @@ masterArray = []
 //When generate password button is pressed then ask how many characters
 
 generateBtn.addEventListener('click', function() { 
+  document.querySelector("#password").value = '';
   var passLength = window.prompt('How long do you want your password? Enter a number between 8 and 128.');
   if (passLength < 8 || passLength > 128 || isNaN(passLength) ) {
     window.alert('Try agian');
@@ -52,18 +44,22 @@ generateBtn.addEventListener('click', function() {
 
   if (yesNumbers) {
     masterArray = masterArray.concat(numberSet)
+    console.log(masterArray)
   }
 
   if (yesUppercase) {
     masterArray = masterArray.concat(upperCaseSet)
+    console.log(masterArray)
   }
 
   if (yesLowercase) {
     masterArray = masterArray.concat(lowerCaseSet)
+    console.log(masterArray)
   }
 
   if (askSpecialChar) {
     masterArray = masterArray.concat(specialCharSet)
+    console.log(masterArray)
   }
  
 
@@ -79,6 +75,16 @@ generateBtn.addEventListener('click', function() {
       window.alert('Your new password is: ' + newPass)
 
       console.log(newPass);
+
+          //Write password to the #password input
+    function writePassword() {
+      var passwordText = document.querySelector("#password").value = newPass;
+
+    }
+    writePassword();
+
+      // make masterArray empty again so it doens't carry over if generate clicked again
+      masterArray = []
 
     })
 
